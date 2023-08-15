@@ -98,6 +98,73 @@ docker compose pull
 docker compose up --force-recreate
 ```
 
+## API
+
+### 请求头
+> Authorization: Bearer {token}
+> 
+> Accept: "application/json"
+
+### 获取Token
+> POST /api/auth/login
+
+### 获取详细指定数据
+> GET  /api/websites/{websiteId}/specifyovstats
+
+### 示例
+```json
+{
+    "today": [
+        {
+            "pageviews": "21",
+            "uniques": 1,
+            "bounces": "1",
+            "totaltime": "3321"
+        }
+    ],
+    "yesterday": [
+        {
+            "pageviews": "33",
+            "uniques": 1,
+            "bounces": "0",
+            "totaltime": "2173"
+        }
+    ],
+    "thisMonth": [
+        {
+            "pageviews": "54",
+            "uniques": 1,
+            "bounces": "1",
+            "totaltime": "5494"
+        }
+    ],
+    "createdToNow": [
+        {
+            "pageviews": "54",
+            "uniques": 1,
+            "bounces": "1",
+            "totaltime": "5494"
+        }
+    ]
+}
+```
+
+### 获取指定数据
+这个数据只有6个 ["今日人数", "今日访问", "昨日人数", "昨日访问", "本月访问", "总访问量"];
+> GET  /api/websites/{websiteId}/specifystats
+
+### 示例
+```json
+[
+  20,
+  30,
+  50,
+  100,
+  1000,
+  1200
+]
+```
+
 ## License
 
 MIT
