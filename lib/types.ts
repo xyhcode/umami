@@ -125,6 +125,13 @@ export interface WebsiteStats {
   totalTime: { value: number; change: number };
 }
 
+export interface WebsiteStatsAll {
+  today: WebsiteStats[];
+  yesterday: WebsiteStats[];
+  thisMonth: WebsiteStats[];
+  createdToNow: WebsiteStats[];
+}
+
 export interface RealtimeInit {
   websites: Website[];
   token: string;
